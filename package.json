@@ -1,0 +1,20 @@
+{
+  "name": "hwcypress",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Rudolf",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "config2": "cypress open --config-file cypress.staging.config.js",
+    "config1": "cypress open --config-file cypress.config.js",
+    "config3": "cypress run --headed --browser edge --config-file cypress.config.js",
+    "config4": "cypress run --browser edge --config-file cypress.staging.config.js",
+    "config5": "cypress run --headed --browser chrome --config-file cypress.staging.config.js",
+    "config6": "cypress run --browser chrome --config-file cypress.config.js"
+  },
+  "devDependencies": {
+    "cypress": "^15.18.0"
+  }
+}
