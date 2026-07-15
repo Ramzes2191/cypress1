@@ -5,25 +5,21 @@ describe("login tests", () => {
     cy.contains("Добро пожаловать test@test.com").should("be.visible");
   });
 
-  it("Should not login with empty login", () => {
+  it("Should not login with incorrect login", () => {
     cy.visit("/");
-
     cy.contains("Log in").click();
-    cy.get("#mail").type(" ");
+    cy.get("#mail").type("dfdfd@dfdfdf.ru");
     cy.get("#pass").type("test");
     cy.contains("Submit").click();
-    cy.get("#mail")
-      .then(($el) => $el[0].checkValidity())
-      .should("be.false");
+    cy.contains("Неправильая почта или пароль").should("be.visible");
   });
 
-  it("Should not login with empty password", () => {
+  it("Should not login with incorrect password", () => {
     cy.visit("/");
     cy.contains("Log in").click();
     cy.get("#mail").type("test@test.com");
+    cy.get("#pass").type("1234");
     cy.contains("Submit").click();
-    cy.get("#pass")
-      .then(($el) => $el[0].checkValidity())
-      .should("be.false");
+    cy.contains("Неправильая почта или пароль").should("be.visible");
   });
 });
